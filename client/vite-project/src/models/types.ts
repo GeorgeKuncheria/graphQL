@@ -3,13 +3,13 @@ interface Movie {
   name: string;
 }
 
-interface User  {
-  id: string;
-  name: string;
-  username: string
-  age: number
-  nationality: string
-  favouriteMovies: Movie[]
+interface User {
+    id?: string;
+    name: string;
+    username: string;
+    age: number;
+    nationality: string;
+    favouriteMovies?: Movie[];
 }
 
 
