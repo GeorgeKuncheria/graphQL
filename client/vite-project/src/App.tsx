@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {gql, useQuery,useLazyQuery,useMutation} from '@apollo/client'
+import {useQuery,useLazyQuery,useMutation} from '@apollo/client'
 import {User, Movie} from './models/types'
 import {QUERY_ALL_USERS, QUERY_ALL_MOVIES, GET_MOVIE_BY_NAME, CREATE_USER} from './queries/userQueries'
 

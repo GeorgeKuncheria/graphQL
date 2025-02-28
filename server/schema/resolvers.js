@@ -32,8 +32,9 @@ const resolvers = {
 
     // Custom Resolvers for fetching data for example user favourite movies
     User: {
-        favouriteMovies: () => {
-                return _.filter(movieList, (movie) =>  movie.yearOfPublication > 2012 && movie.yearOfPublication < 2020);
+        favouriteMovies: (parent) => {
+            console.log(parent); // parent is the user object that is passed to the resolver function
+            return _.filter(movieList, (movie) =>  movie.yearOfPublication > 2012 && movie.yearOfPublication < 2020);
         },
     },
 
