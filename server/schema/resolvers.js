@@ -7,11 +7,16 @@ const resolvers = {
     // Query Resolvers for fetching data
     Query : {
 
-        //User Reolvers
-        users : () => {
+        //User Resolvers
+        
+        //Context is an object that is shared by all resolvers in a query. It is used to store information that is needed by 
+        // multiple resolvers. Used for authentication, authorization, and data fetching.
+        // **Make sure context comes after parent, args  in the resolver function. **
+        users : (parent,args,context) => {
+            // console.log(context);
             return userList;
         },
-        user : (parent, args) => {
+        user : (parent, args,context,info) => {
             const id = args.id;
             const user = _.find(userList, {id: Number(id)});
             return user;
@@ -33,7 +38,7 @@ const resolvers = {
     // Custom Resolvers for fetching data for example user favourite movies
     User: {
         favouriteMovies: (parent) => {
-            console.log(parent); // parent is the user object that is passed to the resolver function
+            //console.log(parent); // parent is the user object that is passed to the resolver function
             return _.filter(movieList, (movie) =>  movie.yearOfPublication > 2012 && movie.yearOfPublication < 2020);
         },
     },
